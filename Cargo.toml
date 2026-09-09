@@ -1,0 +1,38 @@
+[package]
+default-run = "rotate-keys"
+description = "The rotate keys Kubernetes operator"
+edition = "2024"
+exclude = ["*.iml"]
+homepage = "https://github.com/wdonne/rotate-keys"
+keywords = ["key", "kubernetes", "operator", "pki"]
+license = "BSD-2-Clause"
+name = "rotate-keys"
+readme = "README.md"
+repository = "https://github.com/wdonne/rotate-keys"
+version = "1.0.0"
+
+[[bin]]
+doc = false
+name = "crdgen"
+path = "src/crdgen.rs"
+
+[dependencies]
+base64 = "0.23.1"
+chrono = "0.4.45"
+env_logger = "0.11.11"
+futures = "0.3.34"
+k8s-openapi = { version = "0.28.0", features = ["v1_36"] }
+kube = { version = "4.2.0", features = ["client", "derive", "runtime"] }
+kube-core = "4.2.0"
+kube-operator-util = "1.2.2"
+log = "0.4.34"
+openssl = { version = "0.10.81", features = ["vendored"] }
+rust_string_utils = "0.1.20"
+rustls = { version = "0.23.44", features = ["ring"] }
+schemars = "1.2.2"
+serde = "1.0.229"
+serde_json = "1.0.151"
+serde_yaml = "0.9.34+deprecated"
+thiserror = "2.0.20"
+tokio = { version = "1.53.1", features = ["full"] }
+uuid = { version = "1.26.0", features = ["v4"] }
